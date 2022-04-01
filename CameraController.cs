@@ -5,20 +5,20 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform player;
-    private float mouseX, mouseY;//Êó±êĞı×ªÖá
-    public float mouseSensitivity;//Êó±êÁéÃô¶È
-    public float xRotation;//·ÀÖ¹ÊúÖ±·½Ïò»Øµ¯£¬ÀÛ¼ÓmouseY
+    private float mouseX, mouseY;//é¼ æ ‡æ—‹è½¬è½´
+    public float mouseSensitivity;//é¼ æ ‡çµæ•åº¦
+    public float xRotation;//é˜²æ­¢ç«–ç›´æ–¹å‘å›å¼¹ï¼Œç´¯åŠ mouseY
 
     // Update is called once per frame
     private void Update()
     {
-        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;//·µ»Ø-1µ½1Ö®¼äµÄ¸¡µãÊı
-        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;//ÊıÖµ²»¶¯Ê±»á»Øµ¯µ½0
+        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;//è¿”å›-1åˆ°1ä¹‹é—´çš„æµ®ç‚¹æ•°
+        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;//æ•°å€¼ä¸åŠ¨æ—¶ä¼šå›å¼¹åˆ°0
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -40, 40);//ÏŞÖÆÉÏÏÂ·¶Î§
+        xRotation = Mathf.Clamp(xRotation, -40, 40);//é™åˆ¶ä¸Šä¸‹èŒƒå›´
 
-        player.Rotate(Vector3.up * mouseX);//player×óÓÒĞı×ª
-        transform.localRotation = Quaternion.Euler(-mouseY, 0, 0);//Ïà»úÉÏÏÂĞı×ª
+        player.Rotate(Vector3.up * mouseX);//playerå·¦å³æ—‹è½¬ï¼ŒVector3ä¸ºï¼ˆ0ï¼Œ1ï¼Œ0ï¼‰
+        transform.localRotation = Quaternion.Euler(-mouseY, 0, 0);//ç›¸æœºä¸Šä¸‹æ—‹è½¬
     }
 }
